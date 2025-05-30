@@ -163,3 +163,63 @@ linha {
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
 }
+
+.sidebar {
+    width: 250px;
+    height: auto;
+    background-color: var(--white);
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    margin-top: 0;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: var(--black);
+}
+
+.sidebar ul li a:hover {
+    color: var(--primary);
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+tabelas{
+    margin: auto;
+    margin-top: 3%;
+    justify-content: center ;
+    border-collapse: collapse;
+    width: 60%;
+    overflow-y:scroll;
+    height:auto;
+  }
+
+  td, th {
+    border: 2px solid var(--black);
+    text-align: center;
+    padding: 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 400px;
+  }
+  tr:nth-child(even) {
+    background-color: var(--background);
+  }
+  .layout {
+    display: flex;
+}
