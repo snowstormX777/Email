@@ -2,6 +2,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     background-color: var(--background);
 }
 
@@ -166,10 +167,12 @@ linha {
 
 .sidebar {
     width: 250px;
-    height: auto;
     background-color: var(--white);
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar h2 {
