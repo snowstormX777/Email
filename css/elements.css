@@ -202,27 +202,86 @@ linha {
     padding: 20px;
 }
 
-tabelas{
-    margin: auto;
-    margin-top: 3%;
-    justify-content: center ;
-    border-collapse: collapse;
-    width: 60%;
-    overflow-y:scroll;
-    height:auto;
-  }
-
-  td, th {
-    border: 2px solid var(--black);
-    text-align: center;
-    padding: 6px;
+.esc-btn{
+    width: 6.5em;
+    height: 2.3em;
+    background: var(--primary);
+    color: var(--secondary);
+    border: none;
+    border-radius: 0.625em;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
     overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 400px;
-  }
-  tr:nth-child(even) {
-    background-color: var(--background);
-  }
-  .layout {
+    display: block; 
+}
+.esc-btn:hover{
+    color: var(--terciary); 
+}
+.esc-btn::after {
+    content: "";
+    background: white;
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+}
+
+.esc-btn:hover::after {
+    transform: skewX(-45deg) scale(1, 1);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.content {
+    flex: 1;
+    padding: 2rem;
+    background-color: white;
+    overflow-y: auto;
+    overflow-x: hidden; /* evita scroll lateral */
+}
+
+.layout {
     display: flex;
 }
+
+.tabelas {
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    table-layout: fixed; /* importante para truncar texto corretamente */
+}
+
+.tabelas tr {
+    border-bottom: 1px solid #e0e0e0;
+    transition: background-color 0.2s;
+}
+
+.tabelas tr:hover {
+    background-color: #f1f7ff;
+    cursor: pointer;
+}
+
+.tabelas td {
+    padding: 1rem;
+    color: #333;
+    white-space: nowrap;      
+    overflow: hidden;           
+    text-overflow: ellipsis;
+    max-width: 10%; 
+}
+.tabelas td:last-child {
+    width: 100%;
+    white-space: nowrap;
+    text-align: right;
+    overflow: visible;
+  }
