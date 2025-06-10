@@ -93,17 +93,43 @@ nav menu {
 }
 
 h2 {
-    text-align: left;
+    text-align: center;
     font-size: 16px;
     margin-bottom: 10px;
     color: var(--black);
-    border-bottom: 1px solid #f6f6f6;
     padding: 15px 15px;
     width: 100%;
     float: left;
 }
 
-.login {
+.form-enviar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    margin-top: 2%;
+    width: 80%;
+    height: 80%;
+    border: 2px solid black;
+    padding: 2% 4%;
+    border-radius: 10px;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: start;
+    margin: auto;
+    margin-top: 3%;
+    width: 25%;
+    height: 40%;
+    border: 2px solid black;
+    padding: 2% 4%;
+    border-radius: 10px;
+}
+
+.form-newus {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -118,8 +144,15 @@ h2 {
 
 linha {
     display: block;
-    margin-bottom: 20px; /* ou 1rem, mais comum */
+    margin-bottom: 20px; 
     width: 100%;
+    text-align: left;
+}
+linha textarea{
+    resize: none;
+    width: 80vw;
+    height: 15vw;
+
 }
 
 
@@ -129,7 +162,7 @@ linha {
     height: 2.3em;
     margin: 0.5em auto; 
     background: var(--primary);
-    color: var(--secondary);
+    color: var(--quaternary);
     border: none;
     border-radius: 0.625em;
     font-size: 20px;
@@ -266,11 +299,6 @@ linha {
     transition: background-color 0.2s;
 }
 
-.tabelas tr:hover {
-    background-color: #f1f7ff;
-    cursor: pointer;
-}
-
 .tabelas td {
     padding: 1rem;
     color: #333;
@@ -282,6 +310,29 @@ linha {
 .tabelas td:last-child {
     width: 100%;
     white-space: nowrap;
-    text-align: right;
+    text-align: center;
     overflow: visible;
   }
+
+  tfunc{
+    margin: auto;
+    margin-top: 2%;
+    border-collapse: collapse;
+    width: 80%;
+    height: auto;
+    text-align: center;
+  }
+  
+  td, th {
+    border: 2px solid var(--black);
+    padding: 6px;
+  }
+  tr:nth-child(even) {
+    background-color: var(--quaternary);
+  }
+  .auto-resize-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    resize: none;
+}
