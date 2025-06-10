@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionários</title>
+    <script src="./js/lucide.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/elements.css">
+    <script src="./js/tabelas.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          lucide.createIcons();
+        })
+    </script>
+</head>
+
+<body>
+<nav>
+    <h1>Folha de Pagamento</h1>
+    <menu> <!-- depois -->
+        <circle>
+            <i data-lucide="menu"></i>
+        </circle>
+    </menu>
+    <links>
+        <a title="Novo Funcionário" th:href="@{/funcionario/novo}">
+            <i data-lucide="plus"></i>
+        </a>
+        <a title="Tabelas" th:href="@{/tabelas}">
+            <i data-lucide="table-of-contents"></i>
+        </a>
+    </links>
+</nav>
+<tfunc>
+    <table class="tabelas">
+        <tr>
+            <th>Nome</th>
+            <th>VT</th>
+            <th>Sal base</th>
+            <th>Dependentes <14</th>
+            <th>Dependentes IR</th>
+            <th>INSS</th>
+            <th>Salário Família</th>
+            <th>Vale Transporte</th>
+            <th>IRRF</th>
+            <th>Sal. Líquido</th>
+            <th colspan="3">Ações</th>
+        </tr>
+        <tr th:each="cf : ${listcalculos}">
+            <td th:text="${cf.funcionario.nome}" ></td>
+            <td th:text="${cf.funcionario.tipoTexto}"></td>
+            <td th:text="${cf.funcionario.salBaseTotalFormatado}"></td>
+            <td th:text="${cf.funcionario.dep14}"></td>
+            <td th:text="${cf.funcionario.depir}"></td>
+            <td th:text="${cf.inssTotalFormatado}"></td>
+            <td th:text="${cf.sfTotalFormatado}"></td>
+            <td th:text="${cf.vtTotalFormatado}"></td>
+            <td th:text="${cf.irrfTotalFormatado}"></td>
+            <td th:text="${cf.salliqTotalFormatado}"></td>
+            <td>
+            <a th:href="@{'funcionario/excluir/'+${cf.funcionario.id}}">
+                <button >
+                    Excluir
+                    <i data-lucide="trash-2"></i>
+                </button>
+            </a>
+            </td>
+            <td>
+                <a th:href="@{'funcionario/editar/'+${cf.funcionario.id}}">
+                <button >
+                    Editar
+                    <i data-lucide="pencil"></i>
+                </button>
+            </a>
+            </td>
+            <td>
+                <a th:href="@{'funcionario/visualizar/'+${cf.funcionario.id}}">
+                <button >
+                    Visualizar
+                    <i data-lucide="eye"></i>
+                </button>
+            </a>
+            </td>
+            </td>
+        </tr>
+
+    </table>
+</tfunc>
+</body>
+</html>
