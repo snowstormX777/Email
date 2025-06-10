@@ -1,0 +1,212 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+}
+nav {
+    width: calc(100% - 20px);
+    height: 100px;
+    background-color: var(--primary);
+    display: grid;
+    grid-template-columns: auto 1fr 40px;
+    align-items: center;
+    padding: 0 10px;
+
+    h1 {
+        color: var(--white);
+        margin: 0 10px;
+    }
+
+    links {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: 0.7s;
+
+            &:hover {
+                color: var(--black);
+            }
+        }
+    }
+
+    theme {
+        circle {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-left: 10px;
+
+
+            svg {
+                stroke: var(--white);
+                width: 30px;
+                height: 30px;
+                transition: 0.3s;
+            }
+
+            &:hover {
+                svg {
+                    stroke: var(--black);
+                }
+            }
+        }
+    }
+
+    menu {
+        display: none;
+
+        circle {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            svg {
+                stroke: var(--white);
+                width: 30px;
+                height: 30px;
+                transition: 0.3s;
+            }
+
+            &:hover {
+                svg {
+                    stroke: var(--black);
+                }
+            }
+        }
+    }
+}
+
+
+.linksmenu {
+    background-color: var(--background);
+    width: 100vw;
+    position: fixed;
+    top: 100px;
+    right: 0px;
+    flex-direction: column;
+    height: calc(100vh - 100px);
+    justify-content: flex-start;
+
+    a{
+        padding: 20px 0;
+        width: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+
+        &:hover {
+            background-color: var(--primary);
+        }
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+    links {
+        display: none !important;
+
+        circle {
+            display: none !important;
+        }
+    }
+
+    menu {
+        display: flex !important;
+        align-items: center;
+        justify-content: flex-end;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #descricao{
+        display: none;
+    }
+}
+
+.tabelas{
+    margin: auto;
+    margin-top: 3%;
+    justify-content: center ;
+    border-collapse: collapse;
+    width: 60%;
+    overflow-y:scroll;
+    height:auto;
+  }
+
+  td, th {
+    border: 2px solid var(--black);
+    text-align: center;
+    padding: 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 400px;
+  }
+  tr:nth-child(even) {
+    background-color: rgb(175, 221, 161);
+  }
+forms{
+    margin: auto;
+    margin-top: 3%;
+    justify-content: center ;
+    border-collapse: collapse;
+    width: 20%;
+    height: 40%;
+    border: 2px solid black;
+    padding-top: 2%;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 2%;
+    border-radius: 10px;
+}
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
+
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+
+
