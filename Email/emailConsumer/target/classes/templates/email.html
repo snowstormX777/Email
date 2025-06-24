@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Email</title>
+    <script src="/js/lucide.js"></script>
+    <script src="/js/nav.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+            rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/fonts.css"/>
+    <link rel="stylesheet" href="/css/colors.css"/>
+    <link rel="stylesheet" href="/css/elements.css"/>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            lucide.createIcons();
+        });
+    </script>
+<body>
+<nav>
+    <h1>Email</h1>
+    <menu>
+        <circle>
+            <i data-lucide="menu"></i>
+        </circle>
+    </menu>
+    <links>
+        <a th:href="@{/usuario}" title="Voltar">
+            <i data-lucide="arrow-left"></i>
+        </a>
+        </div>
+</nav>
+<div class="layout">
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a th:href="@{/mensagem/novo}">
+                    <button class="esc-btn">Escrever</button>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        <table class="tabelas">
+            <tr th:each="mensagem : ${listamensagem}"
+                th:attr="data-url=@{/mensagem/visualizar/{id}(id=${mensagem.id})}"
+                onclick="window.location=this.getAttribute('data-url')"
+                style="cursor:pointer;">
+                <td th:text="${mensagem.assunto}">Nome</td>
+                <td th:text="${mensagem.dataFormatada}">Idade</td>
+                <td>
+                    <a th:href="@{'mensagem/excluir/'+${mensagem.id}}">
+                        <button>
+                            Excluir
+                            <i data-lucide="trash-2"></i>
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
