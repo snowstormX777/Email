@@ -51,8 +51,8 @@
             <th colspan="2">Ações</th>
         </tr>
         <tr th:each="usuario : ${listusuario}">
-            <td th:text="${usuario.login}">Nome</td>
-            <td th:text="${usuario.nome}">Idade</td>
+            <td th:text="${usuario.nome}">Nome</td>
+            <td th:text="${usuario.login}">Login</td>
             <td>
                 <a th:href="@{'/usuario/editar/'+${usuario.id}}">
                     <button>
