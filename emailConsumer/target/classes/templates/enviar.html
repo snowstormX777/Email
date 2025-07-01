@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email</title>
+    <script src="/js/lucide.js"></script>
+    <script src="/js/nav.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/css/fonts.css"/>
+    <link rel="stylesheet" href="/css/colors.css"/>
+    <link rel="stylesheet" href="/css/elements.css"/>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            lucide.createIcons();
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <h1>Escrever</h1>
+        <menu>
+            <circle>
+                <i data-lucide="menu"></i>
+            </circle>
+        </menu>
+        <links>
+            <a th:href="@{/mensagem}" title="Voltar">
+                <i data-lucide="arrow-left"></i>
+            </a>
+        </links>
+        </div>
+    </nav>
+
+    <div class="form-enviar">
+        <h2>Nova Mensagem</h2>
+        <form th:action="@{/mensagem/salvar}" th:object="${mensagem}" method="POST" autocomplete="off">
+            <input type="hidden" th:field="*{id}">
+            <input type="hidden" th:field="*{remetente}">
+            <input type="hidden" th:field="*{data}">
+            <linha>
+                <label>Para</label>
+                <input type="text" th:field="*{destinatario}" maxlength="10" required/>
+            </linha>
+
+            <linha>
+                <label>Assunto</label>
+                <input type="text" th:field="*{assunto}" maxlength="250" required/>
+            </linha>
+
+            
+            <linha>
+                <textarea th:field="*{mensagem}" required></textarea>
+            </linha>
+
+
+            <button type="submit" class="btn">Enviar</button>
+        </form>
+    </div>
+
+</body>
+</html>

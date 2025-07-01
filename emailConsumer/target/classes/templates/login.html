@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+   <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <script src=".js/lucide.js"></script>
+    <script src="/js/nav.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/colors.css" />
+    <link rel="stylesheet" href="/css/elements.css" />
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            lucide.createIcons();
+        });
+    </script>
+</head>
+ 
+<body>
+
+    <nav>
+        <h1>Email</h1>
+        <menu>
+            <circle>
+                <i data-lucide="menu"></i>
+            </circle>
+        </menu>
+        <links>
+            <a href="#" title="Voltar">
+                <i data-lucide="arrow-left"></i>
+            </a>
+        </div>
+    </nav>
+
+    <div class="form-login">
+        <h2>Entrar</h2>
+        <form th:action="@{/usuario/login}" th:object="${usuario}" method="POST" autocomplete="off">
+            <linha>
+                <label for="username">Login</label>
+                <input type="text" id="username" name="username" placeholder="Digite seu usuário" th:field="*{login}"/>
+            </linha>
+
+            <linha>
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" placeholder="Digite sua senha" th:field="*{senha}"/>
+            </linha>
+
+            <button type="submit" class="btn">Entrar</button>
+        </form>
+        <div class="alert" th:if="${erro}">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <p th:text="${erro}"></p>
+        </div>
+    </div>
+
+</body>
+</html>
